@@ -1,0 +1,13 @@
+from PIL import Image
+from PIL import ImageOps
+
+obr = Image.open('GySAs2-2446419501.png')
+mirror = ImageOps.mirror(obr)
+pixels = mirror.load()
+for i in range(mirror.size[0]):
+    for o in range(mirror.size[1]):
+        r = 255 - pixels[i,o][0]   
+        g = 255 - pixels[i,o][1] 
+        b = 255 - pixels[i,o][2]    
+        pixels[i,o] = (r,g,b)
+mirror.show()
